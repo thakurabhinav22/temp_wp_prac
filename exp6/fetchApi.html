@@ -1,0 +1,19 @@
+<html>
+
+<body>
+    <script>
+        async function getData(){
+            let res = await fetch("https://dummyjson.com/products");
+
+            if(res.ok){
+                let data = await res.json();
+                  document.write(JSON.stringify(data)); // Isko nhi likha tho output [object][object] dikhaga
+            }else{
+                document.write("Something went wrong")
+            }
+        }
+    </script>
+
+    <button onclick="getData()">Click to get data</button>
+</body>
+</html>
