@@ -23,7 +23,7 @@
                 alert("Name is required");
                 return; // to prevent mutliple checks if one error found at every beginning
             }
-            if (isNaN(number) || number.length != 10) {
+            if (isNaN(number) || number.length != 10) { //isNan is check if the string is number or not
                 alert("Invalid number")
                 return;
             }
@@ -38,11 +38,12 @@
 </head>
 
 <body>
-     <form onsubmit="event.preventDefault()">
+    <!-- When submitting form page get refresh event.preventDefault fix that -->
+     <form onsubmit="event.preventDefault(); validate()"> 
         <input type="text" id="name" >
         <input type="text" id="number" >
         <input type="text" id="email" >
-        <button onclick="validate()">Submit</button>
+        <button>Submit</button>
 
     </form>
 </body>
