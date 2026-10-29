@@ -1,0 +1,50 @@
+<html>
+
+<head>
+
+    <script>
+        let EmailregeX = /^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]+$/; //Only if asked not need btw
+        // ^ : Strt of String
+        // [a-ZA-Z0-9] Any combination of upper case lower case and numbers is allowed
+        // +@ : this is required
+        // [a-zA-Z] : any combination of upper and lower case
+        // +\. : This + mean required and cannot write "." it need "\." for appending
+        // [a-zA-Z] : any combination of upper and lower case
+        // +s : String Termination
+        // Extra : [a-z]{3} : allow only lower case and length should be 3 only
+
+        function validate() {
+            
+            let name = document.getElementById("name").value.trim();
+            let number = document.getElementById("number").value.trim();
+            let email = document.getElementById("email").value.trim();
+
+            if (name == '') {
+                alert("Name is required");
+                return; // to prevent mutliple checks if one error found at every beginning
+            }
+            if (isNaN(number) || number.length != 10) {
+                alert("Invalid number")
+                return;
+            }
+
+            if (!EmailregeX.test(email)){
+                alert("invlaid email")
+                return
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+     <form onsubmit="event.preventDefault()">
+        <input type="text" id="name" >
+        <input type="text" id="number" >
+        <input type="text" id="email" >
+        <button onclick="validate()">Submit</button>
+
+    </form>
+</body>
+
+</html>
